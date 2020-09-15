@@ -1,15 +1,13 @@
-﻿using System;
+﻿using  Collections;
+using System;
   class Program
-    {        static void Main1()
+    {        static void Main()
         {
-            (int,float) GetNumber (int x, string y)
-            {
-                return (65,65.5f);
-            }
+            LearnCollections collections = new LearnCollections();
+            collections.LearnDictionary();
 
-            int a=5;
-            string b="I'm hero";
-            object result = GetNumber(a,b);
+
+
         } 
     
 
