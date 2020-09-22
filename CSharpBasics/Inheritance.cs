@@ -33,7 +33,7 @@ public class Rectangle: Shape,IshapeWithSides
         if(Length == Breadth)
              Console.WriteLine($"Displaying result for Square of side [{Length}]");
         else
-             Console.WriteLine($"Displaying result for Rectangle of side [{Length} x {Breadth}  ]");
+             Console.WriteLine($"Displaying result for Rectangle of side [{Length} x {Breadth}]");
        Console.WriteLine($"Area:{this.GetArea()}");
        Console.WriteLine($"Perimeter:{this.GetCircumference()}");
         Console.WriteLine($"Diagonal:{this.GetDiagonal()}");
