@@ -17,6 +17,8 @@ public class FileIO
              fileContent = "command.txt";
                 Console.WriteLine(fileContent); 
         }
+
+        File.WriteAllText(fileName,"This line is just added to test");
     }
 
     public void LearnFileInfo()
