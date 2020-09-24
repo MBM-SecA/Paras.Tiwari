@@ -62,9 +62,9 @@ public class Circle: Shape
     public override double GetCircumference()=> 2*Math.PI*Radius;
     public override void Display()
     {
-       Console.WriteLine($"Displaying result for Circle of Radius {Radius}");
-       Console.WriteLine($"Area:{this.GetArea()}");
-       Console.WriteLine($"Perimeter:{this.GetCircumference()}");
+        Console.WriteLine($"Displaying result for Circle of Radius {Radius}");
+        Console.WriteLine($"Area:{this.GetArea()}");
+        Console.WriteLine($"Circumference:{this.GetCircumference()}");
        
     }
 }
