@@ -39,7 +39,7 @@ namespace LINQ
             //HW1: List countries in Europe Which Have population less <10k
 
             var europeanCountries = from member in countries
-                                    where (member.Continents == Continents.Asia )&& member.Population <10000
+                                    where (member.Continents == Continents.Europe)&& (member.Population < 10000)
                                     select member;
 
             Console.WriteLine("List of Europen countries which has population less than 10K are:");
