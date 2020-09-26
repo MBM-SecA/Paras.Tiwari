@@ -48,10 +48,10 @@ namespace LINQ
                 Console.WriteLine(member.Name);
             }
             //HW2: List asian countries which are not ever invaded.
-            List<string> nonColonizedList = new List<string> {"Nepal","Bhutan","China","Japan"};
+            
             
             var nonColonizedAsian = from member in countries
-                                    where(member.Continents == Continents.Asia) && ( nonColonizedList.Contains(member.Name))
+                                    where(member.Continents == Continents.Asia) && ( member.IndependenceDay==default)
                                     select member;
             Console.WriteLine("List asian countries which are not ever invaded:");
             foreach (var member in nonColonizedAsian)
