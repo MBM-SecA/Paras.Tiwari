@@ -9,9 +9,9 @@ public class  ComplexType
             var asianCountries = from member in countries
                                  where member.Continents == Continents.Asia
                                  select member;
-            foreach (var member in asianCountries)
+            foreach (var value in asianCountries)
             {
-                Console.WriteLine(member.Name);
+                Console.WriteLine(value.Name);
             }
 
             //HW1: List countries in Europe Which Have population less <10k
@@ -21,9 +21,9 @@ public class  ComplexType
                                     select member;
 
             Console.WriteLine("List of Europen countries which has population less than 10K are:");
-            foreach (var member in europeanCountries)
+            foreach (var value in europeanCountries)
             {
-                Console.WriteLine(member.Name);
+                Console.WriteLine(value.Name);
             }
             //HW2: List asian countries which are not ever invaded.
             
@@ -32,11 +32,29 @@ public class  ComplexType
                                     where(member.Continents == Continents.Asia) && ( member.IndependenceDay==default)
                                     select member;
             Console.WriteLine("List asian countries which are not ever invaded:");
-            foreach (var member in nonColonizedAsian)
+            foreach (var item in nonColonizedAsian)
             {
-                Console.WriteLine(member.Name);
+                Console.WriteLine(item.Name);
             }
             // HW - Is there any African country in your country collection
-            //Hw- Print First 2 largest asian country names.
+            
+            var africanMember = countries.Any(x=> x.Continents==Continents.Africa);
+                                
+            if( africanMember)
+                Console.WriteLine("List contains african member");
+            else
+                 Console.WriteLine("List doesn't contain african member");
+        
+        //Hw- Print First 2 largest asian country names.
+        var areaOrderedList = countries.OrderByDescending( x => x.Area);
+                                
+        var firstTwoLargestCountry = areaOrderedList.Take(2);
+         Console.WriteLine("Two largest members are:");
+        foreach (var item in firstTwoLargestCountry)
+            {
+                Console.WriteLine(item.Name);
+            }
+
+          
    }
  }

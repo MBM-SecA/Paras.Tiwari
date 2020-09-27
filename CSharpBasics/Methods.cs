@@ -50,10 +50,11 @@ public class MethodTeacher{
         Console.Write($"Name:{name}[{age}],Address: {address}");
     }
     //generic Mehods
-    public <T> Sum <T> (T firstNum ,T secondNum){
-         return (firstNum+secondNum);
+    /* public T Sum <T>(T firstNum ,T secondNum)
+    {
+       
 
-    }
+    } */
 
 }
 
@@ -67,9 +68,9 @@ public class MethodTester
         Console.WriteLine($"Minimun vlaue {result.min} and maximum value is{result.max}");
         //Named-argument
         methodTeacher.PrintCustomerDetails(age:32,address:"Naikap",name:"Bishnu");
-        methodTeacher.Sum<float>(345.34f,4352.34f);
+        //methodTeacher.Sum<float>(345.34f,4352.34f);
         //calling generic method
-        Sum <int>(int )
+        //int a = methodTeacher.Sum <int>(30,40 );
     } 
 
  }

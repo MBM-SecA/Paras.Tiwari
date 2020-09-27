@@ -27,8 +27,7 @@ namespace LINQ
             foreach( var name in namesStartingFromR2)
                     Console.WriteLine(name); 
             //listing out Asian countries
-            //ComplexType complexType =new ComplexType();
-              //  complexType.CountryProgram();
+            
 
             //projection
             var Squares = from num in numbers
@@ -75,6 +74,8 @@ namespace LINQ
             var result4 = Enumerable.Range(1,1000);
             //repeating certain value
             var result5 = Enumerable.Repeat("Hello World!!",10);
+            ComplexType complexType =new ComplexType();
+               complexType.CountryProgram();
         }
     }
 }
