@@ -8,7 +8,7 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            /* //LINQ = language Integrated Query
+             //LINQ = language Integrated Query
             int[] numbers ={ 23 ,34 , 56 ,67,89,9,0};
             
             //Using method syntax -lamda Expression
@@ -25,39 +25,43 @@ namespace LINQ
                                         where name.ToUpper().StartsWith("R") && name.Length>3
                                         select name;
             foreach( var name in namesStartingFromR2)
-                    Console.WriteLine(name); */
+                    Console.WriteLine(name); 
             //listing out Asian countries
-            List<Country> countries = Country.GetCountries();
-            var asianCountries = from member in countries
-                                 where member.Continents == Continents.Asia
-                                 select member;
-            foreach (var member in asianCountries)
-            {
-                Console.WriteLine(member.Name);
-            }
+            //ComplexType complexType =new ComplexType();
+              //  complexType.CountryProgram();
 
-            //HW1: List countries in Europe Which Have population less <10k
+            //projection
+            var Squares = from num in numbers
+                            select num*num;
 
-            var europeanCountries = from member in countries
-                                    where (member.Continents == Continents.Europe)&& (member.Population < 10000)
-                                    select member;
-
-            Console.WriteLine("List of Europen countries which has population less than 10K are:");
-            foreach (var member in europeanCountries)
-            {
-                Console.WriteLine(member.Name);
-            }
-            //HW2: List asian countries which are not ever invaded.
-            
-            
-            var nonColonizedAsian = from member in countries
-                                    where(member.Continents == Continents.Asia) && ( member.IndependenceDay==default)
-                                    select member;
-            Console.WriteLine("List asian countries which are not ever invaded:");
-            foreach (var member in nonColonizedAsian)
-            {
-                Console.WriteLine(member.Name);
-            }
+                    foreach(var square in Squares)
+                    {
+                        Console.WriteLine(square);
+                    }
+           
+            //sorting
+            var sorted = from num in numbers
+                        orderby num
+                        select num;
+                    foreach(var value in sorted)
+                    {
+                        Console.WriteLine(value);
+                    }
+            //ordering Names
+            var result1 = from name in names
+                            orderby name
+                            select name;
+             foreach(var value in result1)
+                    {
+                        Console.WriteLine(value);
+                    }
+            // taking out only first five no of collection
+            //partitioning
+            var result2 = numbers.Skip(5).Take(5);
+                foreach(var value in result2)
+                    {
+                        Console.WriteLine(value);
+                    }
 
 
 
