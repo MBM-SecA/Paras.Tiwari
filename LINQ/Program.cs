@@ -63,8 +63,18 @@ namespace LINQ
                         Console.WriteLine(value);
                     }
 
+            //Quantifiers
+            //Finding out if collection has certain object or not
 
-
+            var even = numbers.Any(x=>x%2==0);
+            //if all of the contens are of same properties
+            var evens = numbers.All(x=>x%2==0);
+            //searching for certain element
+            var result3 = numbers.Contains(34);
+            //generating list of numbers
+            var result4 = Enumerable.Range(1,1000);
+            //repeating certain value
+            var result5 = Enumerable.Repeat("Hello World!!",10);
         }
     }
 }
