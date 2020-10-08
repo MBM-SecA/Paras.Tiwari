@@ -46,7 +46,7 @@ public class  ComplexType
                  Console.WriteLine("List doesn't contain african member");
         
         //Hw- Print First 2 largest asian country names.
-        var areaOrderedList = countries.OrderByDescending( x => x.Area);
+        var areaOrderedList = asianCountries.OrderByDescending( x => x.Area);
                                 
         var firstTwoLargestCountry = areaOrderedList.Take(2);
          Console.WriteLine("Two largest members are:");
