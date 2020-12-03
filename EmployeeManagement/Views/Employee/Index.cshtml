@@ -13,6 +13,7 @@
       <th scope="col">Address</th>
       <th scope="col">Gender</th>
       <th scope="col">Salary</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,11 @@
          <td>@employee.Address</td>
          <td>@employee.Gender</td>
          <td>@employee.Salary</td>
+
+            <td><a href="/employee/edit?Id=@employee.Id"><button class="btn btn-primary">Edit</button></a>&nbsp;<a href="/employee/delete?Id=@employee.Id"><button class="btn btn-danger">Delete</button></a></td>
+             
+         
+        
        </tr>
          
      }
