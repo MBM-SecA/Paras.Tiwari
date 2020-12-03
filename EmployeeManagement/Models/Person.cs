@@ -11,7 +11,7 @@ public class Person
     [Display(Name = "Last Name")]
     public string LastName { get; set; }
     public string Address { get; set; }
-    public char Gender { get; set; } = 'M';
+    public char Gender { get; set; } 
     public double Salary { get; set; }
   
 }
