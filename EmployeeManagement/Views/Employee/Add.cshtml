@@ -2,16 +2,17 @@
 @{
     ViewData["Titlephrase"]="Add Employee";
     string[] genders={"Male","Female","Others"};
+    List<Department> devOptions = ViewData["DepartmentOptions"] as List<Department>;
 }
 <h3>Add New Employee</h3>
 <hr>
 <form   asp-controller="Employee" asp-action="Add" method="POST">
   <div class="form-group">
-    <label asp-for="FirstName"></label>
+    <label asp-for="FirstName"></label><span class="text-danger" asp-validation-for="FirstName"></span>
     <input type="text" class="form-control" asp-for="FirstName" placeholder="Enter First Name">
   </div>
   <div class="form-group">
-    <label asp-for="LastName"></label>
+    <label asp-for="LastName"></label><span class="text-danger" asp-validation-for="LastName"></span>
     <input type="text" class="form-control" asp-for="LastName"  placeholder="Enter Last Name">
   </div>
   <div class="form-group">
@@ -23,7 +24,7 @@
    @foreach(var gender in genders)
    {
      <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="@gender" value="@gender[0]" checked>
+  <input class="form-check-input" type="radio" asp-for="@gender" id="@gender" value="@gender[0]">
   <label class="form-check-label" for="@gender">
     @gender
   </label>
@@ -35,7 +36,16 @@
     <label asp-for="Salary"></label>
     <input type="number" class="form-control" asp-for="Salary" placeholder="Enter Salary">
   </div>
-
-  
+    <div class="form-group">
+      <label asp-for="Department"></label><span class="text-danger" asp-validation-for="Department"></span>
+    <select class = "custom-select" asp-for="DepartmentId">
+      <option selected>Please select a department </option>
+      @foreach (var Department in devOptions)
+      {
+          <option asp-for="DepartmentId" value="@Department.Id">@Department.Name</option>
+      }
+      
+    </select>
+  </div>
   <button type="submit" class="btn btn-primary">Save Employee</button>
 </form>

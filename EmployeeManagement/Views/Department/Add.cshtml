@@ -8,11 +8,11 @@
 <form   asp-controller="Department" asp-action="Add" method="POST">
 <input type="hidden" asp-for="Id"/>
   <div class="form-group">
-    <label asp-for="Name"></label>
+    <label asp-for="Name"></label><span class="text-danger" asp-validation-for="Name"></span>
     <input type="text" class="form-control" asp-for="Name" placeholder="Enter Department Name">
   </div>
   <div class="form-group">
-    <label asp-for="Code"></label>
+    <label asp-for="Code"></label><span class="text-danger" asp-validation-for="Code"></span>
     <input type="text" class="form-control" asp-for="Code"  placeholder="Enter Department Code">
   </div>
   <div class="form-group">

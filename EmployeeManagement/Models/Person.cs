@@ -13,5 +13,8 @@ public class Person
     public string Address { get; set; }
     public char Gender { get; set; } 
     public double Salary { get; set; }
+    [Required]
+    public Department Department { get; set; }
+    public int DepartmentId { get; set; }
   
 }
