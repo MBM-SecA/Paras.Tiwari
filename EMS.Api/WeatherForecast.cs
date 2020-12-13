@@ -1,6 +1,6 @@
 using System;
 
-namespace EMSApi
+namespace EMS.Api
 {
     public class WeatherForecast
     {

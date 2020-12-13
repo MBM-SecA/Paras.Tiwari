@@ -6,20 +6,20 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using EMS.Api.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace EMSApi
+namespace EMS.Api
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
         }
 
         public IConfiguration Configuration { get; }
@@ -27,7 +27,7 @@ namespace EMSApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EMContext>(option=>option.UseSqlite("Data Source=EMSApi.db"));
+            services.AddDbContext<EMSApiContext>(options=>options.UseSqlite("Data Source=EMSapi.db"));
             services.AddControllers();
         }
 
