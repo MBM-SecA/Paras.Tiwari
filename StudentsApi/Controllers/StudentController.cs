@@ -59,6 +59,7 @@ public class StudentController:ControllerBase
        if(student==null)
        return  BadRequest();
     var result=$"Removed {student.Name}";
+
     
        return Ok(result);
 
