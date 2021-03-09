@@ -51,6 +51,7 @@ namespace StudentsApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                
             });
         }
     }

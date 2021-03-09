@@ -1,16 +1,20 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using StudentsApi.Data;
 using StudentsApi.Models;
 [Route("students")]
 [ApiController]
 public class StudentController:ControllerBase
 {
+    private readonly StudentContext db;
+    public StudentController(StudentContext _db) => db = _db;
+
     [HttpGet]
     [Route("all")]
    public ActionResult GetAllStudents()
 
    {
-       string[] students = {"Ram","Shyam","Hari","Geeta"}; //demo string array
+       var students = db.Students.ToList();
 
     if (students== null)
     {
@@ -21,14 +25,14 @@ public class StudentController:ControllerBase
 
    [HttpGet]
    [Route("{name}")]
-   public ActionResult GetStudentByName(string name)
+   public ActionResult GetStudentById(string Id)
    {
-       string[] students = {"Ram","Shyam","Hari","Geeta"}; //demo string array
-        var result = students.Where(x=> x == name).FirstOrDefault();
-    if (result==null)
-        return BadRequest();
+   var student = db.Students.Find(Id);
+        
+    if (student==null)
+        return NotFound("Student not found");
     
-    return Ok(result);
+    return Ok(student);
    }
 
    [HttpPost]
@@ -37,6 +41,8 @@ public class StudentController:ControllerBase
    {
        if(student==null)
        return BadRequest();
+       db.Students.Add(student);
+       db.SaveChanges();
        
        return Created("",student);
 
@@ -47,8 +53,11 @@ public class StudentController:ControllerBase
    {
        if(student==null)
        return BadRequest();
-       
-       return Created("Updated student",student);
+        db.Students.Attach(student);
+        db.Students.Update(student);
+       db.SaveChanges();
+
+     return Created("Updated student",student);
 
    }
 
@@ -57,10 +66,12 @@ public class StudentController:ControllerBase
     public ActionResult RemoveStudent(Student student)
    {
        if(student==null)
-       return  BadRequest();
-    var result=$"Removed {student.Name}";
+       return BadRequest();
 
-    
+        db.Students.Attach(student);
+        db.Students.Remove(student);
+       db.SaveChanges();
+        var result=$"Removed {student.Name} with id ={student.Id}";
        return Ok(result);
 
    }
