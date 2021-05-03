@@ -63,8 +63,9 @@ public class StudentController:ControllerBase
 
    [HttpDelete]
    [Route("Delete")]
-    public ActionResult RemoveStudent(Student student)
+    public ActionResult RemoveStudent(int id)
    {
+       var student= db.Students.Find(id);
        if(student==null)
        return BadRequest();
 
